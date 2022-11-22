@@ -1,0 +1,7 @@
+version: "3"
+services:
+  paddle_ocr:
+    container_name: paddle_ocr
+    build: ../paddle_ocr
+    volumes:
+      - ../paddle_ocr:/paddle_ocr
