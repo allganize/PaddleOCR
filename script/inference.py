@@ -8,11 +8,11 @@ text_recognition_char_dict = "../ppocr/utils/dict/japan_dict.txt"
 text_recognition_model = "../ppstructure/inference/japan_PP-OCRv3_rec_infer"
 
 table_char_dict = "../ppocr/utils/dict/table_structure_dict_ch.txt"
-table_recognition_model = "Exp2_inference"
+table_recognition_model = "Baseline"
 
 
 for file_name in os.listdir("../data/input/"):
-    # table_detect_result = subprocess.getstatusoutput(f"python table_detect.py {file_name}")[1]
+    table_detect_result = subprocess.getstatusoutput(f"python table_detect.py {file_name}")[1]
 
     recognition_result = subprocess.getstatusoutput(f"python ../ppstructure/table/predict_table.py \
         --det_model_dir={text_detection_model} \
