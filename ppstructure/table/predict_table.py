@@ -98,12 +98,17 @@ class TableSystem(object):
 
         tic = time.time()
         pred_html = self.match(structure_res, dt_boxes, rec_res)
+        
+        dt_boxes = [dt_box.tolist() for dt_box in dt_boxes]
+        _, pred_bboxes = structure_res
+        pred_bboxes = [pred_bbox.tolist() for pred_bbox in pred_bboxes]
+        
         toc = time.time()
         time_dict['match'] = toc - tic
         result['html'] = pred_html
         end = time.time()
         time_dict['all'] = end - start
-        return result, time_dict
+        return result, dt_boxes, rec_res, pred_bboxes
 
     def _structure(self, img):
         structure_res, elapse = self.table_structurer(copy.deepcopy(img))
@@ -194,7 +199,6 @@ def main(args):
             img = utility.draw_boxes(img, pred_res['cell_bbox'])
         img_save_path = os.path.join(args.output, os.path.basename(image_file))
         cv2.imwrite(img_save_path, img)
-
         f_html.write("<tr>\n")
         f_html.write(f'<td> {os.path.basename(image_file)} <br/>\n')
         f_html.write(f'<td><img src="{image_file}" width=640></td>\n')
@@ -206,7 +210,6 @@ def main(args):
         f_html.write("</tr>\n")
     f_html.write("</table>\n")
     f_html.close()
-
     if args.benchmark:
         table_sys.table_structurer.autolog.report()
 
