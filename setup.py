@@ -46,8 +46,8 @@ setup(
     description='Awesome OCR toolkits based on PaddlePaddle （8.6M ultra-lightweight pre-trained model, support training and deployment among server, mobile, embeded and IoT devices',
     long_description=readme(),
     long_description_content_type='text/markdown',
-    url='https://github.com/PaddlePaddle/PaddleOCR',
-    download_url='https://github.com/PaddlePaddle/PaddleOCR.git',
+    url='https://github.com/allganize/PaddleOCR',
+    download_url='https://github.com/allganize/PaddleOCR.git',
     keywords=[
         'ocr textdetection textrecognition paddleocr crnn east star-net rosetta ocrlite db chineseocr chinesetextdetection chinesetextrecognition'
     ],
