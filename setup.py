@@ -35,11 +35,11 @@ def readme():
 
 
 setup(
-    name='paddleocr',
-    packages=['paddleocr'],
-    package_dir={'paddleocr': ''},
+    name='PaddleOCR',
+    packages=['PaddleOCR'],
+    package_dir={'PaddleOCR': ''},
     include_package_data=True,
-    entry_points={"console_scripts": ["paddleocr= paddleocr.paddleocr:main"]},
+    # entry_points={"console_scripts": ["paddleocr= paddleocr.paddleocr:main"]},
     version=VERSION,
     install_requires=load_requirements(['requirements.txt', 'ppstructure/recovery/requirements.txt']),
     license='Apache License 2.0',
